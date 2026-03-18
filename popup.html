@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Hotstar Subtitle Styler</h1>
+    <!-- <p class="tagline">Customize Hotstar subtitles</p> -->
+
+    <div class="toggle-row">
+      <label for="enabled">Enable custom styles</label>
+      <input type="checkbox" id="enabled" checked>
+    </div>
+
+    <hr>
+
+    <div class="section" id="controls">
+      <!-- Font Size -->
+      <div class="control-group">
+        <label for="fontSize">Font Size</label>
+        <div class="range-row">
+          <input type="range" id="fontSize" min="12" max="72" value="28">
+          <span class="range-value" id="fontSizeVal">28px</span>
+        </div>
+      </div>
+
+      <!-- Font Family -->
+      <div class="control-group">
+        <label for="fontFamily">Font Family</label>
+        <select id="fontFamily">
+          <option value="Inconsolata-SemiBold, sans-serif" selected>Inconsolata (Default)</option>
+          <option value="'Inter', sans-serif">Inter</option>
+          <option value="Arial, Helvetica, sans-serif">Arial</option>
+          <option value="'Trebuchet MS', sans-serif">Trebuchet MS</option>
+          <option value="Verdana, Geneva, sans-serif">Verdana</option>
+          <option value="Georgia, serif">Georgia</option>
+          <option value="'Times New Roman', serif">Times New Roman</option>
+          <option value="'Courier New', monospace">Courier New</option>
+          <option value="'Comic Sans MS', cursive">Comic Sans MS</option>
+        </select>
+      </div>
+
+      <!-- Font Color -->
+      <div class="control-group">
+        <label for="fontColor">Font Color</label>
+        <div class="color-row">
+          <input type="color" id="fontColor" value="#ffffff">
+          <span class="color-hex" id="fontColorHex">#ffffff</span>
+        </div>
+      </div>
+
+      <!-- Font Weight -->
+      <div class="control-group">
+        <label for="fontWeight">Bold</label>
+        <select id="fontWeight">
+          <option value="normal" selected>Normal (Default)</option>
+          <option value="600">Semi Bold</option>
+          <option value="bold">Bold</option>
+          <option value="900">Extra Bold</option>
+        </select>
+      </div>
+
+      <!-- Font Style -->
+      <div class="control-group">
+        <label for="fontStyle">Italic</label>
+        <select id="fontStyle">
+          <option value="normal">Normal</option>
+          <option value="italic">Italic</option>
+        </select>
+      </div>
+
+      <hr>
+
+      <!-- Background Color -->
+      <div class="control-group">
+        <label for="bgColor">Background Color</label>
+        <div class="color-row">
+          <input type="color" id="bgColor" value="#000000">
+          <span class="color-hex" id="bgColorHex">#000000</span>
+        </div>
+      </div>
+
+      <!-- Background Opacity -->
+      <div class="control-group">
+        <label for="bgOpacity">Background Opacity</label>
+        <div class="range-row">
+          <input type="range" id="bgOpacity" min="0" max="100" value="80">
+          <span class="range-value" id="bgOpacityVal">80%</span>
+        </div>
+      </div>
+
+      <!-- Background Padding - hidden for now
+      <div class="control-group">
+        <label for="bgPadding">Background Padding</label>
+        <div class="range-row">
+          <input type="range" id="bgPadding" min="0" max="24" value="0">
+          <span class="range-value" id="bgPaddingVal">0px</span>
+        </div>
+      </div>
+      -->
+
+      <!-- Background Border Radius - hidden for now
+      <div class="control-group">
+        <label for="bgRadius">Background Roundness</label>
+        <div class="range-row">
+          <input type="range" id="bgRadius" min="0" max="16" value="0">
+          <span class="range-value" id="bgRadiusVal">0px</span>
+        </div>
+      </div>
+      -->
+
+      <hr>
+
+      <!-- Text Shadow -->
+      <div class="control-group">
+        <label for="textShadow">Text Shadow</label>
+        <select id="textShadow">
+          <option value="none" selected>None</option>
+          <option value="outline">Outline</option>
+          <option value="drop-shadow">Drop Shadow</option>
+          <option value="raised">Raised</option>
+          <option value="depressed">Depressed</option>
+        </select>
+      </div>
+
+      <!-- Text Shadow Color -->
+      <div class="control-group">
+        <label for="shadowColor">Shadow Color</label>
+        <div class="color-row">
+          <input type="color" id="shadowColor" value="#000000">
+          <span class="color-hex" id="shadowColorHex">#000000</span>
+        </div>
+      </div>
+
+      <!-- Text Shadow Opacity -->
+      <div class="control-group">
+        <label for="shadowOpacity">Shadow Opacity</label>
+        <div class="range-row">
+          <input type="range" id="shadowOpacity" min="0" max="100" value="100">
+          <span class="range-value" id="shadowOpacityVal">100%</span>
+        </div>
+      </div>
+
+      <hr>
+
+      <!-- Vertical Position -->
+      <div class="control-group">
+        <label for="bottomOffset">Vertical Position</label>
+        <div class="range-row">
+          <input type="range" id="bottomOffset" min="0" max="40" value="10">
+          <span class="range-value" id="bottomOffsetVal">10%</span>
+        </div>
+      </div>
+
+      <!-- Line Spacing -->
+      <div class="control-group">
+        <label for="lineHeight">Line Spacing</label>
+        <div class="range-row">
+          <input type="range" id="lineHeight" min="100" max="250" value="129">
+          <span class="range-value" id="lineHeightVal">129%</span>
+        </div>
+      </div>
+
+      <!-- Text Transform -->
+      <div class="control-group">
+        <label for="textTransform">Text Transform</label>
+        <select id="textTransform">
+          <option value="none">None</option>
+          <option value="uppercase">UPPERCASE</option>
+          <option value="lowercase">lowercase</option>
+          <option value="capitalize">Capitalize</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="button-row">
+      <button id="resetBtn" class="btn btn-secondary">Reset Defaults</button>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
