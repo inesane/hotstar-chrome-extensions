@@ -4,6 +4,7 @@
   const DEFAULTS = {
     skipIntro: true,
     skipAds: true,
+    autoNextEpisode: true,
     profileName: "",
   };
 
@@ -100,6 +101,27 @@
     }
   }
 
+  // ── Auto Click Next Episode ────────────────────────────────────────────────
+
+  let nextEpisodeClicked = false;
+
+  function tryClickNextEpisode() {
+    if (!settings.autoNextEpisode) return;
+    if (nextEpisodeClicked) return;
+
+    const buttons = document.querySelectorAll("button");
+    for (const btn of buttons) {
+      const text = btn.textContent?.trim() || "";
+      if (!/next\s*episode/i.test(text)) continue;
+      if (!btn.querySelector("i.icon-play-fill")) continue;
+      nextEpisodeClicked = true;
+      btn.click();
+      // Reset after navigation so it works for the next episode
+      setTimeout(() => { nextEpisodeClicked = false; }, 10000);
+      return;
+    }
+  }
+
   // ── Ad Detection & Refresh ───────────────────────────────────────────
 
   function recentlyRefreshed() {
@@ -190,6 +212,7 @@
 
   setInterval(() => {
     tryClickSkipButtons();
+    tryClickNextEpisode();
     handleAdDetection();
     checkUrlChange();
   }, 2000);

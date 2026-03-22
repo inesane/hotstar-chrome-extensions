@@ -23,6 +23,7 @@ Automatically skip intros and bypass long mid-roll ad breaks.
 - **Skip Long Ads**: Detects mid-roll ad breaks (the "1 of 3" counter) and refreshes the page to get a shorter ad instead
 - **Auto Fullscreen**: Restores fullscreen after an ad refresh
 - **Profile Reselect**: Auto-selects your profile if Hotstar prompts "Who's Watching?" after a refresh
+- **Auto Click Next Episode**: Skips the countdown and immediately plays the next episode
 
 ## Install
 
@@ -48,5 +49,4 @@ Automatically skip intros and bypass long mid-roll ad breaks.
 
 ## Future Ideas
 
-- **Auto Next Episode**: Auto-click the "Next Episode" popup that appears at the end of an episode to skip the countdown
 - **Conditional Fullscreen Restore**: Only restore fullscreen after ad refresh if the player was in fullscreen before the ad break
