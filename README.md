@@ -45,3 +45,8 @@ Automatically skip intros and bypass long mid-roll ad breaks.
 - On ad detection, the page refreshes to get a shorter ad (Hotstar resumes playback from where it left off)
 - After refresh, the extension polls for the video element, then sends a trusted `F` keypress via `chrome.debugger` to restore player fullscreen
 - Settings (skip intro, skip ads, profile name) are configurable via the extension popup
+
+## Future Ideas
+
+- **Auto Next Episode**: Auto-click the "Next Episode" popup that appears at the end of an episode to skip the countdown
+- **Conditional Fullscreen Restore**: Only restore fullscreen after ad refresh if the player was in fullscreen before the ad break

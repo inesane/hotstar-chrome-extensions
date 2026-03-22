@@ -20,50 +20,51 @@
   // Runs immediately on script load. If we just refreshed for an ad,
   // poll for the video element and press F to restore fullscreen.
 
-  const needsFullscreen = sessionStorage.getItem(NEEDS_RESELECT_KEY) === "true";
+  const needsPostRefresh = sessionStorage.getItem(NEEDS_RESELECT_KEY) === "true";
 
-  if (needsFullscreen) {
-    sessionStorage.removeItem(NEEDS_RESELECT_KEY);
-    sessionStorage.removeItem(PROFILE_KEY);
-
-    chrome.storage.sync.get(DEFAULTS, (stored) => {
-      const profileName = stored.profileName || "";
-      if (profileName) {
-        tryAutoSelectProfile(profileName);
-      }
-    });
-
-    // Poll for video, then send trusted F key via debugger
+  if (needsPostRefresh) {
+    // Poll for video, handle profile selection, and restore fullscreen
     let fsAttempts = 0;
     const fsInterval = setInterval(() => {
       fsAttempts++;
+
+      // Keep trying to select profile while waiting for video
+      tryAutoSelectProfileOnce();
+
       if (document.querySelector("video")) {
         clearInterval(fsInterval);
+        sessionStorage.removeItem(NEEDS_RESELECT_KEY);
+        sessionStorage.removeItem(PROFILE_KEY);
         setTimeout(() => {
           chrome.runtime.sendMessage({ type: "PRESS_KEY", key: "f" });
         }, 2000);
       }
-      if (fsAttempts >= 30) clearInterval(fsInterval);
+      if (fsAttempts >= 60) clearInterval(fsInterval);
     }, 1000);
   }
 
-  function tryAutoSelectProfile(profileName) {
-    let attempts = 0;
-    const profileInterval = setInterval(() => {
-      attempts++;
-      const allEls = document.querySelectorAll("div, span, p, a, button");
-      for (const el of allEls) {
-        if (el.children.length > 3) continue;
-        const text = el.textContent?.trim() || "";
-        if (text.toLowerCase() === profileName.toLowerCase() && isVisible(el)) {
-          el.click();
-          clearInterval(profileInterval);
-          return;
-        }
+  let profileDone = false;
+
+  function tryAutoSelectProfileOnce() {
+    if (profileDone) return;
+
+    const name = settings.profileName?.toLowerCase();
+    if (!name) return;
+
+    // Hotstar profile wrappers have data-testid="profile-wrapper-id"
+    // Each contains a <p> with the profile name and a clickable role="button" div
+    const wrappers = document.querySelectorAll('[data-testid="profile-wrapper-id"]');
+    for (const wrapper of wrappers) {
+      const text = (wrapper.textContent?.trim() || "").toLowerCase();
+      if (text.includes(name)) {
+        const btn = wrapper.querySelector('[role="button"]') || wrapper;
+        btn.click();
+        profileDone = true;
+        return;
       }
-      if (attempts >= 15) clearInterval(profileInterval);
-    }, 1000);
+    }
   }
+
 
   // ── Skip Intro / Skip Recap ──────────────────────────────────────────
 
@@ -151,7 +152,6 @@
     if (counter) {
       sessionStorage.setItem(NEEDS_RESELECT_KEY, "true");
       sessionStorage.setItem(REFRESH_KEY, Date.now().toString());
-
       if (settings.profileName) {
         sessionStorage.setItem(PROFILE_KEY, settings.profileName);
       }
