@@ -50,3 +50,4 @@ Automatically skip intros and bypass long mid-roll ad breaks.
 ## Future Ideas
 
 - **Conditional Fullscreen Restore**: Only restore fullscreen after ad refresh if the player was in fullscreen before the ad break
+- **Disney+**: Test and integrate the chrome extension to work with and improve disney+
