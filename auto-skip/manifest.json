@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "JioHotstar Auto Skip",
   "version": "1.0",
-  "description": "Auto-skip intros and bypass long mid-roll ad breaks on JioHotstar.",
+  "description": "Auto-skip intros, bypass long mid-roll ads and auto-click next episode on JioHotstar.",
   "permissions": ["storage", "debugger"],
   "host_permissions": ["*://*.hotstar.com/*", "*://*.jiohotstar.com/*"],
   "background": {
