@@ -1,4 +1,4 @@
-# JioHotstar Tools
+# JioHotstarDisneyPlus Chrome Extensions
 
 A collection of Chrome extensions to enhance the [JioHotstar](https://www.hotstar.com) viewing experience.
 
