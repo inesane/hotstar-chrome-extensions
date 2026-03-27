@@ -4,7 +4,7 @@ A collection of Chrome extensions to enhance the [JioHotstar](https://www.hotsta
 
 ## Extensions
 
-### 1. Subtitle Styler (`subtitle-styler/`)
+### 1. Subtitle Styler (`subtitle-styler/`) — [Install from Chrome Web Store](https://chromewebstore.google.com/detail/hotstar-subtitle-styler/cccbdckhnahimldkdglebaehjonmccff)
 
 Customize subtitle appearance on JioHotstar. Hotstar doesn't provide built-in subtitle customization — this extension fills that gap.
 
@@ -27,7 +27,7 @@ Automatically skip intros and bypass long mid-roll ad breaks.
 
 ## Install
 
-> **Chrome Web Store**: These extensions have been submitted to the Chrome Web Store and are pending approval. A direct install link will be added here once approved.
+> **Chrome Web Store**: [Subtitle Styler](https://chromewebstore.google.com/detail/hotstar-subtitle-styler/cccbdckhnahimldkdglebaehjonmccff) is live. Auto Skip is pending approval.
 
 **Manual install (Developer Mode):**
 1. Clone this repo or download as ZIP
