@@ -14,7 +14,7 @@ Customize subtitle appearance on JioHotstar. Hotstar doesn't provide built-in su
 - **Text Shadow**: None, outline, drop shadow, raised, depressed — with color and opacity controls
 - **Layout**: Vertical position, line spacing, text transform
 
-### 2. Auto Skip (`auto-skip/`)
+### 2. Auto Skip (`auto-skip/`) — [Install from Chrome Web Store](https://chromewebstore.google.com/detail/jiohotstar-auto-skip/iiachelinhjkfgndeplnfiojangmemid)
 
 Automatically skip intros and bypass long mid-roll ad breaks.
 
@@ -27,7 +27,7 @@ Automatically skip intros and bypass long mid-roll ad breaks.
 
 ## Install
 
-> **Chrome Web Store**: [Subtitle Styler](https://chromewebstore.google.com/detail/hotstar-subtitle-styler/cccbdckhnahimldkdglebaehjonmccff) is live. Auto Skip is pending approval.
+> **Chrome Web Store**: [Subtitle Styler](https://chromewebstore.google.com/detail/hotstar-subtitle-styler/cccbdckhnahimldkdglebaehjonmccff) | [Auto Skip](https://chromewebstore.google.com/detail/jiohotstar-auto-skip/iiachelinhjkfgndeplnfiojangmemid)
 
 **Manual install (Developer Mode):**
 1. Clone this repo or download as ZIP
